@@ -40,7 +40,9 @@ class RecordingService : LifecycleService() {
                 val recorder = Recorder.Builder()
                     .setQualitySelector(QualitySelector.from(Quality.HD))
                     .build()
-                val capture = VideoCapture.withOutput(recorder)
+                val capture = VideoCapture.withOutput(recorder).apply {     
+                    targetRotation = android.view.Surface.ROTATION_90 
+                }
                 provider.unbindAll()
                 provider.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, capture)
                 val name = "VisibleRecorder_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date()) + ".mp4"
