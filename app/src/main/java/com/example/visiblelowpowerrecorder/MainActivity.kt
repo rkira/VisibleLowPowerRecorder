@@ -1,6 +1,7 @@
 package com.example.visiblelowpowerrecorder
 
 import android.Manifest
+import androidx.camera.video.FallbackStrategy
 import androidx.activity.ComponentActivity
 import android.content.ContentValues
 import android.content.pm.PackageManager
@@ -193,9 +194,7 @@ class MainActivity : ComponentActivity() {
             .setQualitySelector(
                 QualitySelector.from(
                     selectedQuality,
-                    QualitySelector.FallbackStrategy.lowerQualityOrHigherThan(
-                        selectedQuality
-                    )
+                    FallbackStrategy.lowerQualityOrHigherThan(selectedQuality)
                 )
             )
             .build()
