@@ -1,7 +1,7 @@
 package com.example.visiblelowpowerrecorder
 
 import android.Manifest
-import android.app.Activity
+import androidx.activity.ComponentActivity
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -28,7 +28,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class MainActivity : Activity() {
+class MainActivity : ComponentActivity() {
 
     private lateinit var previewView: PreviewView
     private lateinit var statusText: TextView
